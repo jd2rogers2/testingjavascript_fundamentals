@@ -23,8 +23,6 @@ function describe(statement, callback) {
   callback();
 };
 
-module.exports = {
-  describe,
-  expect,
-  it,
-};
+global.describe = describe;
+global.expect = expect;
+global.it = it;

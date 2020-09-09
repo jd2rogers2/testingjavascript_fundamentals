@@ -1,4 +1,3 @@
-const { describe, it, expect } = require('./helpers');
 const { add, subtract } = require('./math');
 
 describe('add', () => {

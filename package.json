@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "test": "node index.js"
+    "test": "node --require ./helpers.js index.js"
   },
   "author": "",
   "license": "ISC"
