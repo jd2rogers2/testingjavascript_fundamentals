@@ -1,16 +1,39 @@
 const { add, subtract } = require('./math');
 
-let expected = 15;
-let actual = add(10, 5);
+describe('add', () => {
+  it('adds positive numbers correctly', () => {
+    expect(add(10, 5)).toBe(15);
+    expect(add(100, 775)).toBe(875);
+  });
+});
 
-if (expected !== add) {
-  throw `Expected ${actual} to equal ${expected}`;
-}
+describe('subtract', () => {
+  it('subtracts the second number from the first correctly, given positive numbers', () => {
+    expect(subtract(10, 5)).toBe(5);
+  });
+});
 
+function expect(actual) {
+  return {
+  toBe: expected => {
+      if (expected !== actual) {
+        throw `Expected ${actual} to equal ${expected}`;
+      }
+    },
+  };
+};
 
-expected = 5;
-actual = subtract(10, 5);
+function it(statement, callback) {
+  try {
+    callback();
+    console.log(`  √ - ${statement}`);
+  } catch(err) {
+    console.log(`  x - ${statement}`);
+    console.error(`    ${err}\n`);
+  }
+};
 
-if (expected !== add) {
-  throw `Expected ${actual} to equal ${expected}`;
-}
+function describe(statement, callback) {
+  console.log(statement);
+  callback();
+};
